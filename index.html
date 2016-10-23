@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color: olivedrab">
+<h1>Hello World, My name is Justin</h1>
+<h2>Would you like to guess my magic number?</h2>
+<h3>
+
+    THis day on october 22,2016 ,Me and uncle tom made this program:D
+</h3>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        justin();
+    });
+    function justin() {
+    var magic = 55;
+    var tries = 3;
+    for (attempt=0; attempt < tries; attempt ++) {
+        var guess = prompt('Enter a number');
+
+        if (magic == parseInt(guess)) {
+            document.writeln('<h1 style="background-color:olivedrab "> You win!!</h1>');
+            document.writeln('<img src="justin_win_fireworks.gif" height="430"  width="800' +
+                    '"/>');
+            break;
+        }
+        else {
+                alert('This is not my magic number. Please try again. Do not feel bad<br>');
+        }
+    }
+    if (attempt == tries) {
+        document.writeln('<h1> You ran out of tries. Refresh to play again</h1>')
+    }
+    }
+</script>
+
+</body>
+</html>

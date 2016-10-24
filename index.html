@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body style="background-color: olivedrab">
 <h1>Hello World, My name is Justin</h1>
 <h2>Would you like to guess my magic number?</h2>
 <h3>
 
-    THis day on october 22,2016 ,Me and uncle tom made this program:D
+    This day on october 22,2016 ,Me and uncle tom made this program:D
 </h3>
+<button type="button" onclick="justin()">Click to play!</button>
+<button type="button" onclick="hint(hint_count)">Hints!</button>
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script>
-
+    var hint_count = 0;
     $( document ).ready(function() {
+        var hint_tries = 0;
         console.log( "ready!" );
-        justin();
+        //justin();
     });
     function justin() {
     var magic = 55;
@@ -26,7 +30,7 @@
 
         if (magic == parseInt(guess)) {
             document.writeln('<h1 style="background-color:olivedrab "> You win!!</h1>');
-            document.writeln('<img src="justin_win_fireworks.gif" height="430"  width="800' +
+            document.writeln('<img src="justin_win2.gif" height="430"  width="800' +
                     '"/>');
             break;
         }
@@ -35,8 +39,23 @@
         }
     }
     if (attempt == tries) {
-        document.writeln('<h1> You ran out of tries. Refresh to play again</h1>')
+        document.writeln('<h1 style="font-family : Helvetica";> You ran out of tries. Refresh to play again</h1>')
     }
+    }
+
+    function hint() {
+        var hint_tries = window.hint_count;
+        if (hint_tries == 0) {
+            alert(' The number is between 40 and 60');
+            hint_tries += 1;
+        } else if (hint_tries == 1) {
+            alert(' The digits add to a two digit number');
+            hint_tries += 1;
+        }
+        else {
+            document.writeln('<h1 style="background-color:olivedrab ">Sorry.  We are out of hints');
+        }
+        window.hint_count = hint_tries;
     }
 </script>
 
